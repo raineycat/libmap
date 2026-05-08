@@ -515,24 +515,23 @@ void geo_generator_print_entities()
         {
             brush *brush_inst = &entity_inst->brushes[b];
             brush_geometry *brush_geo_inst = &entity_geo_inst->brushes[b];
-            printf("Brush %d\n", b);
+            printf("\tBrush %d\n", b);
 
             for (int f = 0; f < brush_inst->face_count; ++f)
             {
                 face_geometry *face_geo_inst = &brush_geo_inst->faces[f];
-                printf("Face %d\n", f);
+                printf("\t\tFace %d\n", f);
                 for (int i = 0; i < face_geo_inst->vertex_count; ++i)
                 {
                     face_vertex vertex = face_geo_inst->vertices[i];
-                    printf("vertex: (%f %f %f), normal: (%f %f %f)\n",
+                    printf("\t\t\tvertex: (%f %f %f), normal: (%f %f %f)\n",
                            vertex.vertex.x, vertex.vertex.y, vertex.vertex.z,
                            vertex.normal.x, vertex.normal.y, vertex.normal.z);
                 }
 
-                puts("Indices:");
                 for (int i = 0; i < (face_geo_inst->vertex_count - 2) * 3; ++i)
                 {
-                    printf("index: %d\n", face_geo_inst->indices[i]);
+                    printf("\t\t\tindex: %d\n", face_geo_inst->indices[i]);
                 }
             }
 
