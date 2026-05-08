@@ -294,7 +294,7 @@ void token(const char *buf)
         }
         else if (strings_match(buf, "}"))
         {
-            commit_entity(&current_entity);
+            commit_entity();
             set_scope(PS_FILE);
         }
         break;
@@ -352,7 +352,7 @@ void token(const char *buf)
         }
         else if (strings_match(buf, "}"))
         {
-            commit_brush(&current_brush);
+            commit_brush();
             set_scope(PS_ENTITY);
         }
         break;
@@ -532,7 +532,7 @@ void token(const char *buf)
     case PS_V_SCALE:
         current_face.uv_extra.scale_y = atof(buf);
 
-        commit_face(&current_face);
+        commit_face();
 
         set_scope(PS_BRUSH);
         break;
